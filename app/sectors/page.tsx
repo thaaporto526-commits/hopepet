@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   BriefcaseBusiness,
   Laptop,
@@ -44,7 +45,9 @@ export default function SectorsPage() {
           Nossa organização
         </span>
 
-        <h1 className={`${playfair.className} text-3xl md:text-4xl font-bold text-foreground mt-2 mb-4`}>
+        <h1
+          className={`${playfair.className} text-3xl md:text-4xl font-bold text-foreground mt-2 mb-4`}
+        >
           Conheça nossos setores
         </h1>
 
@@ -77,6 +80,34 @@ export default function SectorsPage() {
             </div>
           );
         })}
+      </div>
+
+      <div className="max-w-5xl mx-auto mt-20 text-center">
+        <span className="text-sm font-semibold text-primary uppercase tracking-wider">
+          Estrutura organizacional
+        </span>
+
+        <h2
+          className={`${playfair.className} text-3xl md:text-4xl font-bold text-foreground mt-2 mb-6`}
+        >
+          Organograma Hopepet
+        </h2>
+
+        <p className="text-muted-foreground mb-10 max-w-2xl mx-auto">
+          Confira como nossa organização está estruturada e como os setores
+          se conectam.
+        </p>
+
+        <div className="bg-white rounded-2xl border p-4 md:p-8 shadow-sm">
+          <Image
+            src="/organograma.png"
+            alt="Organograma da Hopepet"
+            width={1200}
+            height={900}
+            className="w-full h-auto object-contain"
+            priority
+          />
+        </div>
       </div>
     </Section>
   );
