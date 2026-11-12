@@ -49,7 +49,7 @@ const pets = [
     specie: "Gato",
     race: "Siamês",
     gender: "Fêmea",
-    age: "6 meses",
+    age: "4 anos",
     city: "São Paulo",
     state: "SP",
     status: "in_analysis",
