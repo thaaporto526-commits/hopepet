@@ -15,7 +15,7 @@ export default function Hero() {
           alt="Cachorro feliz resgatado pela Hopepet"
           fill
           priority
-          className="object-contain object-center"
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-linear-to-r from-foreground/90 via-foreground/75 to-foreground/45"></div>
       </div>
