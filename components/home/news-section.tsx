@@ -12,7 +12,7 @@ const newsList: NewsItem[] = [
     date: "2026-04-10",
     title: "Campanha de Castração Abril 2026",
     description: "Nova campanha de castração gratuita acontecerá no próximo mês em parceria com clínicas veterinárias da região.",
-    image: "/hero-dog.png",
+    image: "/news-castracao.png",
     link: "/news",
   },
   {
@@ -21,7 +21,7 @@ const newsList: NewsItem[] = [
     date: "2026-04-05",
     title: "Feira de Adoção no Shopping Center Norte",
     description: "Mais de 50 animais estarão disponíveis para adoção. Venha conhecer seu novo melhor amigo!",
-    image: "/hero-dog.png",
+    image: "/news-adocao.png",
     link: "/news",
   },
   {
@@ -30,7 +30,7 @@ const newsList: NewsItem[] = [
     date: "2026-04-01",
     title: "Parceria com Pet Shop Amigo Animal",
     description: "Nova parceria garantirá descontos em medicamentos e ração para animais resgatados pela ONG.",
-    image: "/hero-dog.png",
+    image: "/news-parceria.png",
     link: "/news",
   },
 ];
@@ -69,4 +69,5 @@ export default function NewsSection() {
       </div>
     </Section>
   );
+}
 }
