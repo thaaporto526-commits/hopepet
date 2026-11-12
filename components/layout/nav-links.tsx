@@ -1,41 +1,48 @@
-"use client"
+"use client";
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import clsx from 'clsx';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import clsx from "clsx";
 
 export const links = [
   { name: "Início", href: "/" },
   { name: "Sobre", href: "/about" },
   { name: "Projetos", href: "/projects" },
   { name: "Adoção", href: "/adoption" },
-  { name: "Setores", href: "/s" },
+  { name: "Setores", href: "/sectors" },
   { name: "Notícias", href: "/news" },
   { name: "Contato", href: "/contact" },
 ];
 
-export default function NavLinks() {
+type NavLinksProps = {
+  isDarkBackground?: boolean;
+  onItemClick?: () => void;
+};
+
+export default function NavLinks({ isDarkBackground = false, onItemClick }: NavLinksProps) {
   const pathname = usePathname();
 
   return (
     <>
       {links.map((link) => {
+        const isActive = pathname === link.href;
+
         return (
           <Link
             key={link.name}
             href={link.href}
+            onClick={onItemClick}
             className={clsx(
               "text-sm font-medium transition-colors",
-              {
-                "text-primary hover:text-primary": pathname === link.href,
-                "text-background/80 hover:text-background": pathname !== link.href
-              }
+              isActive && "text-primary font-semibold",
+              !isActive && isDarkBackground && "text-white/80 hover:text-white",
+              !isActive && !isDarkBackground && "text-muted-foreground hover:text-foreground"
             )}
           >
             {link.name}
           </Link>
-        )
+        );
       })}
     </>
-  )
+  );
 }
