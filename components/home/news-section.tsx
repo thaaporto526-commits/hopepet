@@ -11,27 +11,30 @@ const newsList: NewsItem[] = [
     category: "Campanhas",
     date: "2026-04-10",
     title: "Campanha de Castração Abril 2026",
-    description: "Nova campanha de castração gratuita acontecerá no próximo mês em parceria com clínicas veterinárias da região.",
+    description:
+      "Nova campanha de castração gratuita acontecerá no próximo mês em parceria com clínicas veterinárias da região.",
     image: "/news-castracao.png",
-    link: "/news",
+    link: "/news/campanha-castracao",
   },
   {
     id: 2,
     category: "Eventos",
     date: "2026-04-05",
     title: "Feira de Adoção no Shopping Center Norte",
-    description: "Mais de 50 animais estarão disponíveis para adoção. Venha conhecer seu novo melhor amigo!",
+    description:
+      "Mais de 50 animais estarão disponíveis para adoção. Venha conhecer seu novo melhor amigo!",
     image: "/news-adocao.png",
-    link: "/news",
+    link: "/news/feira-adocao",
   },
   {
     id: 3,
     category: "Parcerias",
     date: "2026-04-01",
     title: "Parceria com Pet Shop Amigo Animal",
-    description: "Nova parceria garantirá descontos em medicamentos e ração para animais resgatados pela ONG.",
+    description:
+      "Nova parceria garantirá descontos em medicamentos e ração para animais resgatados pela ONG.",
     image: "/news-parceria.png",
-    link: "/news",
+    link: "/news/parceria-pet-shop",
   },
 ];
 
