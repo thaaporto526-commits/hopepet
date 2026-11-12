@@ -9,7 +9,7 @@ const pets = [
   {
     id: 1,
     name: "Thor",
-    image: "/hero-dog.png",
+    image: "/thor.png",
     specie: "Cachorro",
     race: "Vira-lata",
     gender: "Macho",
@@ -21,7 +21,7 @@ const pets = [
   {
     id: 2,
     name: "Luna",
-    image: "/hero-dog.png",
+    image: "/luna.png",
     specie: "Gato",
     race: "Siamês",
     gender: "Fêmea",
@@ -33,7 +33,7 @@ const pets = [
   {
     id: 3,
     name: "Bob",
-    image: "/hero-dog.png",
+    image: "/bob.png",
     specie: "Cachorro",
     race: "Labrador",
     gender: "Macho",
@@ -45,7 +45,7 @@ const pets = [
   {
     id: 4,
     name: "Mel",
-    image: "/hero-dog.png",
+    image: "/mel.png",
     specie: "Gato",
     race: "Persa",
     gender: "Fêmea",
