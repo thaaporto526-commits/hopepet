@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import team from "@/public/about-team.png";
+import projects from "@/public/projects.png";
 import { playfair } from "@/lib/fonts";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Stethoscope, Home, GraduationCap, Heart } from "lucide-react";
@@ -103,7 +103,7 @@ export default function Projects() {
         <div className="order-1 md:order-2 relative">
           <div className="relative rounded-2xl overflow-hidden h-72 sm:h-96 md:h-full md:min-h-100 w-full shadow-md">
             <Image
-              src={team}
+              src={projects}
               alt="Projetos da Hopepet com a comunidade e animais"
               fill
               className="object-cover"
