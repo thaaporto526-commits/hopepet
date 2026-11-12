@@ -1,69 +1,95 @@
-"use client"
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
+import {
+  Card,
+  CardHeader,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
 import { Heart, Calendar, MapPin } from "lucide-react";
 
 const statusConfig = {
   available: {
     label: "Disponível",
-    variant: "default"
+    variant: "default",
   },
   in_analysis: {
     label: "Em análise",
-    variant: "secondary"
+    variant: "secondary",
   },
-  adopted: { 
-    label: "Adotado", 
-    variant: "default"
-  }
+  adopted: {
+    label: "Adotado",
+    variant: "default",
+  },
 } as const;
 
 export interface Pet {
   id: number;
-  name: string; 
+  name: string;
   image: string;
-  specie: string; 
-  race: string; 
-  gender: string; 
-  age: string; 
-  city: string; 
+  specie: string;
+  race: string;
+  gender: string;
+  age: string;
+  city: string;
   state: string;
   status: string;
 }
 
 type PetCardProps = {
   pet: Pet;
-}
+};
 
+const petLinks: Record<string, string> = {
+  Thor: "/adoption/thor",
+  Luna: "/adoption/luna",
+  Bob: "/adoption/bob",
+  Mel: "/adoption/mel",
+};
 
 export default function PetCard({ pet }: PetCardProps) {
   const [isFavorited, setIsFavorited] = useState(false);
 
-  const currentStatus = statusConfig[pet.status as keyof typeof statusConfig];
+  const currentStatus =
+    statusConfig[pet.status as keyof typeof statusConfig];
 
-  return(
+  const petLink = petLinks[pet.name] || "/adoption";
+
+  return (
     <Card className="w-[85vw] md:w-full min-w-70 shrink-0 snap-center pt-0 hover:-translate-y-0.5 hover:shadow-lg transition-all">
       <div className="relative aspect-square">
-        <Image 
-          src={pet.image}
-          alt="Pet exibido para adoção"
-          fill
-          className="object-cover"
-        />
+        <Link href={petLink}>
+          <Image
+            src={pet.image}
+            alt={`Foto de ${pet.name}`}
+            fill
+            className="object-cover"
+          />
+        </Link>
 
         <Badge variant={currentStatus.variant} className="absolute left-3 top-3">
           {currentStatus.label}
         </Badge>
 
-        <Button variant="basic" size="icon-sm" className="absolute right-3 top-3" onClick={() => setIsFavorited(!isFavorited)}>
-          <Heart 
+        <Button
+          variant="basic"
+          size="icon-sm"
+          className="absolute right-3 top-3"
+          onClick={() => setIsFavorited(!isFavorited)}
+          aria-label={
+            isFavorited
+              ? `Remover ${pet.name} dos favoritos`
+              : `Adicionar ${pet.name} aos favoritos`
+          }
+        >
+          <Heart
             className={`w-4 h-4 transition-all duration-300 ${
-              isFavorited 
+              isFavorited
                 ? "text-primary fill-primary"
                 : "text-muted-foreground"
             }`}
@@ -76,9 +102,7 @@ export default function PetCard({ pet }: PetCardProps) {
           {pet.name}
         </h3>
 
-        <Badge variant="outline">
-          {pet.specie}
-        </Badge>
+        <Badge variant="outline">{pet.specie}</Badge>
       </CardHeader>
 
       <CardContent className="flex flex-col">
@@ -100,10 +124,14 @@ export default function PetCard({ pet }: PetCardProps) {
       </CardContent>
 
       <CardFooter className="flex items-center mt-auto">
-        <Button className="w-full font-semibold" render={<Link href="/adoption" />}>
-          Quero adotar
+        <Button
+          className="w-full font-semibold"
+          render={<Link href={petLink} />}
+        >
+          {pet.status === "available" ? "Quero adotar" : "Conhecer"}
         </Button>
       </CardFooter>
     </Card>
-  )
+  );
+}
 }
