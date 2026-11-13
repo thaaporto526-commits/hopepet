@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Calendar, ArrowRight } from "lucide-react";
 import { Section } from "@/components/ui/section";
@@ -38,7 +37,7 @@ const newsList = [
     date: "1 de novembro de 2026",
     description:
       "Conheça a história de Maria e sua dedicação ao cuidado dos animais e às atividades da Hopepet.",
-    image: "https://hopepet.vercel.app/maria.png",
+    image: "/maria.png",
     link: "/news/voluntaria-do-mes",
   },
   {
@@ -47,7 +46,7 @@ const newsList = [
     date: "15 de junho de 2026",
     description:
       "Confira cuidados importantes para manter cães e gatos aquecidos, confortáveis e protegidos durante os dias frios.",
-    image: "https://hopepet.vercel.app/inverno.png",
+    image: "/inverno.png",
     link: "/news/cuidados-inverno",
   },
   {
@@ -56,7 +55,7 @@ const newsList = [
     date: "20 de agosto de 2026",
     description:
       "Uma equipe de voluntários encontrou seis filhotes que precisavam de acolhimento e cuidados.",
-    image: "https://hopepet.vercel.app/resgate.png",
+    image: "/resgate.png",
     link: "/news/resgate-seis-filhotes",
   },
   {
@@ -65,7 +64,7 @@ const newsList = [
     date: "30 de dezembro de 2025",
     description:
       "Relembre momentos importantes, ações realizadas e histórias que marcaram o ano da Hopepet.",
-    image: "https://hopepet.vercel.app/balanco.png",
+    image: "/balanco.png",
     link: "/news/balanco-2025",
   },
 ];
@@ -95,13 +94,11 @@ export default function NewsPage() {
             key={item.link}
             className="bg-card border rounded-2xl overflow-hidden flex flex-col hover:shadow-lg transition-shadow"
           >
-            <div className="relative aspect-video">
-              <Image
+            <div className="relative aspect-video overflow-hidden">
+              <img
                 src={item.image}
-                alt={item.title}
-                fill
-                unoptimized
-                className="object-cover"
+                alt={`Capa: ${item.title}`}
+                className="absolute inset-0 w-full h-full object-cover"
               />
             </div>
 
