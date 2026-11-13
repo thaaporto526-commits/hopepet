@@ -36,6 +36,46 @@ const newsList: NewsItem[] = [
     image: "/news-parceria.png",
     link: "/news/parceria-pet-shop",
   },
+  {
+    id: 4,
+    category: "Voluntariado",
+    date: "2026-11-01",
+    title: "Maria: voluntária do mês",
+    description:
+      "Conheça a história de Maria e sua dedicação ao cuidado dos animais e às atividades da Hopepet.",
+    image: "/news-maria.png",
+    link: "/news/voluntaria-do-mes",
+  },
+  {
+    id: 5,
+    category: "Cuidados",
+    date: "2026-06-15",
+    title: "Dicas de cuidado com os pets no inverno",
+    description:
+      "Confira cuidados importantes para manter cães e gatos aquecidos, confortáveis e protegidos durante os dias frios.",
+    image: "/news-inverno.png",
+    link: "/news/cuidados-inverno",
+  },
+  {
+    id: 6,
+    category: "Resgates",
+    date: "2026-08-20",
+    title: "Resgate emocionante: seis filhotes encontrados",
+    description:
+      "Uma equipe de voluntários encontrou seis filhotes que precisavam de acolhimento e cuidados.",
+    image: "/news-resgate.png",
+    link: "/news/resgate-seis-filhotes",
+  },
+  {
+    id: 7,
+    category: "Retrospectiva",
+    date: "2025-12-30",
+    title: "Balanço 2025: um ano de conquistas",
+    description:
+      "Relembre momentos importantes, ações realizadas e histórias que marcaram o ano da Hopepet.",
+    image: "/news-balanco.png",
+    link: "/news/balanco-2025",
+  },
 ];
 
 export default function NewsSection() {
