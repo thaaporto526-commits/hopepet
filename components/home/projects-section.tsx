@@ -3,7 +3,15 @@ import Link from "next/link";
 import projects from "@/public/projects.png";
 import { playfair } from "@/lib/fonts";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Stethoscope, Home, GraduationCap, Heart } from "lucide-react";
+import {
+  ArrowRight,
+  Stethoscope,
+  Home,
+  GraduationCap,
+  Heart,
+  PawPrint,
+  Utensils,
+} from "lucide-react";
 import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
 import { Section } from "@/components/ui/section";
 
@@ -13,33 +21,37 @@ export default function Projects() {
       title: "Castramóvel",
       icon: Stethoscope,
       iconColor: "text-primary bg-primary/10",
-      border: "hover:border-primary/30",
-      cardSpan: "sm:row-span-2",
-      desc: "Campanha itinerante de castração gratuita em comunidades carentes. Já realizamos mais de 2.000 procedimentos.",
+      desc: "Campanha itinerante de castração gratuita em comunidades carentes, contribuindo para o controle populacional e a saúde dos animais.",
     },
     {
       title: "Educação nas Escolas",
       icon: GraduationCap,
       iconColor: "text-primary bg-primary/10",
-      border: "hover:border-primary/30",
-      cardSpan: "",
-      desc: "Palestras e atividades educativas sobre posse responsável e respeito aos animais.",
+      desc: "Palestras e atividades educativas sobre posse responsável, respeito e proteção aos animais.",
     },
     {
       title: "Adoção Consciente",
       icon: Heart,
       iconColor: "text-primary bg-primary/10",
-      border: "hover:border-primary/30",
-      cardSpan: "",
-      desc: "Programa completo de adoção com acompanhamento pós-adoção e suporte às famílias.",
+      desc: "Programa de adoção responsável, com orientação às famílias e acompanhamento da adaptação dos animais em seus novos lares.",
     },
     {
       title: "Lar Temporário",
       icon: Home,
       iconColor: "text-secondary bg-secondary/10",
-      border: "hover:border-secondary/30",
-      cardSpan: "sm:col-span-2",
-      desc: "Rede de lares temporários para animais em recuperação ou aguardando adoção definitiva.",
+      desc: "Rede de lares temporários que acolhem animais resgatados durante a recuperação e enquanto aguardam uma família definitiva.",
+    },
+    {
+      title: "Atendimento Veterinário",
+      icon: PawPrint,
+      iconColor: "text-primary bg-primary/10",
+      desc: "Cuidados veterinários, consultas, vacinação e tratamentos para oferecer saúde e qualidade de vida aos animais resgatados.",
+    },
+    {
+      title: "Banco de Ração",
+      icon: Utensils,
+      iconColor: "text-secondary bg-secondary/10",
+      desc: "Arrecadação e distribuição de alimentos para ajudar protetores independentes e famílias que precisam de apoio para alimentar seus animais.",
     },
   ];
 
@@ -58,21 +70,26 @@ export default function Projects() {
           </h2>
 
           <p className="text-muted-foreground text-base sm:text-lg text-pretty mb-6 sm:mb-8">
-            Desenvolvemos diversos projetos para atender animais em diferentes situações, desde o resgate até a adoção responsável.
+            Desenvolvemos projetos para proteger os animais, promover o bem-estar
+            e conscientizar a comunidade, desde o resgate até a adoção responsável.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {cards.map((card, index) => (
               <Card
                 key={index}
-                className={`flex flex-col h-full ${card.cardSpan} border ${card.border} hover:-translate-y-0.5 hover:shadow-md transition-all`}
+                className="flex flex-col h-full border hover:border-primary/30 hover:-translate-y-0.5 hover:shadow-md transition-all"
               >
                 <CardHeader className="flex flex-row items-center gap-3">
-                  <div className={`${card.iconColor} w-11 h-11 shrink-0 rounded-full flex items-center justify-center`}>
+                  <div
+                    className={`${card.iconColor} w-11 h-11 shrink-0 rounded-full flex items-center justify-center`}
+                  >
                     <card.icon className="w-5 h-5" />
                   </div>
 
-                  <h3 className={`${playfair.className} text-card-foreground text-base font-bold`}>
+                  <h3
+                    className={`${playfair.className} text-card-foreground text-base font-bold`}
+                  >
                     {card.title}
                   </h3>
                 </CardHeader>
@@ -112,7 +129,9 @@ export default function Projects() {
 
           <div className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 rounded-xl bg-primary text-primary-foreground shadow-xl p-4 sm:p-6">
             <p className="text-3xl sm:text-4xl font-bold">5+</p>
-            <p className="text-xs sm:text-sm font-medium opacity-90">Anos de atuação</p>
+            <p className="text-xs sm:text-sm font-medium opacity-90">
+              Anos de atuação
+            </p>
           </div>
         </div>
       </div>
