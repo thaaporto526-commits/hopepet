@@ -115,7 +115,7 @@ export default function Adoption() {
         <h2
           className={`${playfair.className} text-2xl md:text-3xl lg:text-4xl font-bold text-foreground leading-tight text-balance mt-2 mb-3`}
         >
-          Animais Disponíveis para Adoção
+          Conheça nossos animais
         </h2>
 
         <p className="text-base sm:text-lg text-muted-foreground text-pretty max-w-2xl mb-8">
