@@ -18,21 +18,24 @@ export default function VetInterview() {
           <h2
             className={`${playfair.className} mb-5 text-3xl font-bold text-[#493b31] md:text-4xl`}
           >
-            Uma conversa sobre amor e cuidado
+            Por trás de cada cuidado, uma história
           </h2>
 
           <p className="mb-4 text-[#66594d]">
-            Conheça a veterinária Daiane Vanessa em uma entrevista especial
-            sobre saúde, cuidados e bem-estar animal.
+            Conheça a médica veterinária Daiane Vanessa em uma conversa
+            especial sobre sua trajetória profissional e os desafios
+            enfrentados no dia a dia da clínica veterinária.
           </p>
 
           <p className="mb-6 text-[#66594d]">
-            Dicas e orientações importantes para quem ama e cuida dos pets!
+            Um depoimento sobre experiências, dedicação e o amor por
+            cuidar dos animais, revelando um pouco do que existe por
+            trás dessa profissão.
           </p>
 
           <div className="flex items-center gap-2 text-sm font-semibold text-[#98734d]">
             <Heart size={18} />
-            <span>Informação também é uma forma de carinho.</span>
+            <span>Cuidar também é uma história de dedicação.</span>
           </div>
         </div>
 
@@ -52,7 +55,8 @@ export default function VetInterview() {
           />
 
           <p className="mt-4 text-sm text-[#66594d]">
-            Aponte a câmera do celular para o QR Code e confira a entrevista.
+            Aponte a câmera do celular para o QR Code e confira esse
+            depoimento especial.
           </p>
 
           <span className="mt-2 text-xs font-medium text-[#98734d]">
