@@ -38,7 +38,7 @@ const newsList = [
     date: "1 de novembro de 2026",
     description:
       "Conheça a história de Maria e sua dedicação ao cuidado dos animais e às atividades da Hopepet.",
-    image: "/maria.png",
+    image: "https://hopepet.vercel.app/maria.png",
     link: "/news/voluntaria-do-mes",
   },
   {
@@ -47,7 +47,7 @@ const newsList = [
     date: "15 de junho de 2026",
     description:
       "Confira cuidados importantes para manter cães e gatos aquecidos, confortáveis e protegidos durante os dias frios.",
-    image: "/inverno.png",
+    image: "https://hopepet.vercel.app/inverno.png",
     link: "/news/cuidados-inverno",
   },
   {
@@ -56,7 +56,7 @@ const newsList = [
     date: "20 de agosto de 2026",
     description:
       "Uma equipe de voluntários encontrou seis filhotes que precisavam de acolhimento e cuidados.",
-    image: "/resgate.png",
+    image: "https://hopepet.vercel.app/resgate.png",
     link: "/news/resgate-seis-filhotes",
   },
   {
@@ -65,7 +65,7 @@ const newsList = [
     date: "30 de dezembro de 2025",
     description:
       "Relembre momentos importantes, ações realizadas e histórias que marcaram o ano da Hopepet.",
-    image: "/balanco.png",
+    image: "https://hopepet.vercel.app/balanco.png",
     link: "/news/balanco-2025",
   },
 ];
@@ -100,6 +100,7 @@ export default function NewsPage() {
                 src={item.image}
                 alt={item.title}
                 fill
+                unoptimized
                 className="object-cover"
               />
             </div>
