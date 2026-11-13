@@ -24,7 +24,7 @@ const statusConfig = {
   },
   adopted: {
     label: "Adotado",
-    variant: "default",
+    variant: "outline",
   },
 } as const;
 
@@ -50,6 +50,13 @@ const petLinks: Record<string, string> = {
   Luna: "/adoption/luna",
   Bob: "/adoption/bob",
   Mel: "/adoption/mel",
+  Apolo: "/adoption/apolo",
+  Bento: "/adoption/bento",
+  Lola: "/adoption/lola",
+  Muth: "/adoption/muth",
+  Simba: "/adoption/simba",
+  Frajola: "/adoption/frajola",
+  "Flor e Jade": "/adoption/florejade",
 };
 
 export default function PetCard({ pet }: PetCardProps) {
@@ -72,9 +79,11 @@ export default function PetCard({ pet }: PetCardProps) {
           />
         </Link>
 
-        <Badge variant={currentStatus.variant} className="absolute left-3 top-3">
-          {currentStatus.label}
-        </Badge>
+        {currentStatus && (
+          <Badge variant={currentStatus.variant} className="absolute left-3 top-3">
+            {currentStatus.label}
+          </Badge>
+        )}
 
         <Button
           variant="basic"
@@ -110,16 +119,18 @@ export default function PetCard({ pet }: PetCardProps) {
           {`${pet.race} - ${pet.gender}`}
         </p>
 
-        <div className="flex items-center gap-4 text-xs text-muted-foreground">
+        <div className="flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
           <span className="flex items-center gap-1">
             <Calendar className="w-4 h-4" />
             {pet.age}
           </span>
 
-          <span className="flex items-center gap-1">
-            <MapPin className="w-4 h-4" />
-            {`${pet.city}, ${pet.state}`}
-          </span>
+          {pet.city && (
+            <span className="flex items-center gap-1">
+              <MapPin className="w-4 h-4" />
+              {`${pet.city}${pet.state ? `, ${pet.state}` : ""}`}
+            </span>
+          )}
         </div>
       </CardContent>
 
@@ -128,7 +139,9 @@ export default function PetCard({ pet }: PetCardProps) {
           className="w-full font-semibold"
           render={<Link href={petLink} />}
         >
-          {pet.status === "available" ? "Quero adotar" : "Conhecer"}
+          {pet.status === "available"
+            ? "Quero adotar"
+            : "Conhecer"}
         </Button>
       </CardFooter>
     </Card>
