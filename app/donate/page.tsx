@@ -1,11 +1,24 @@
 "use client";
 
 import { useState } from "react";
-import { Heart, Copy, QrCode, ShieldCheck } from "lucide-react";
+import { Heart, Copy, QrCode, ShieldCheck, Package, Gift } from "lucide-react";
 import { playfair } from "@/lib/fonts";
 
 const pixKey = "hopepet-doacao-demo@exemplo.com";
 const suggestedValues = ["10", "25", "50", "100"];
+
+const donationItems = [
+  "Ração para cães",
+  "Ração para gatos",
+  "Sachês e patês",
+  "Cobertores e mantas",
+  "Caminhas",
+  "Brinquedos",
+  "Coleiras e guias",
+  "Produtos de higiene",
+  "Produtos de limpeza",
+  "Potes de água e comida",
+];
 
 function DemoQrCode() {
   const size = 21;
@@ -30,8 +43,10 @@ function DemoQrCode() {
     if (isFinder(row, col, 0, 14)) return true;
     if (isFinder(row, col, 14, 0)) return true;
 
-    return (row * 7 + col * 11 + row * col) % 3 === 0 ||
-      (row + col * 2) % 5 === 0;
+    return (
+      (row * 7 + col * 11 + row * col) % 3 === 0 ||
+      (row + col * 2) % 5 === 0
+    );
   }
 
   return (
@@ -57,6 +72,9 @@ function DemoQrCode() {
 export default function DonatePage() {
   const [amount, setAmount] = useState("25");
   const [message, setMessage] = useState("");
+  const [selectedItems, setSelectedItems] = useState<string[]>([]);
+  const [quantities, setQuantities] = useState<Record<string, number>>({});
+  const [productMessage, setProductMessage] = useState("");
 
   const formattedAmount = Number(amount || 0).toLocaleString("pt-BR", {
     style: "currency",
@@ -80,6 +98,38 @@ export default function DonatePage() {
 
     setMessage(
       `Doação demonstrativa de ${formattedAmount} realizada com sucesso!`
+    );
+  }
+
+  function toggleItem(item: string) {
+    setSelectedItems((current) =>
+      current.includes(item)
+        ? current.filter((selected) => selected !== item)
+        : [...current, item]
+    );
+    setProductMessage("");
+  }
+
+  function updateQuantity(item: string, quantity: number) {
+    setQuantities((current) => ({
+      ...current,
+      [item]: Math.max(1, quantity),
+    }));
+    setProductMessage("");
+  }
+
+  function confirmProductDonation() {
+    if (selectedItems.length === 0) {
+      setProductMessage("Selecione pelo menos um item para continuar.");
+      return;
+    }
+
+    const summary = selectedItems
+      .map((item) => `${quantities[item] || 1}x ${item}`)
+      .join(", ");
+
+    setProductMessage(
+      `Doação demonstrativa confirmada! Itens selecionados: ${summary}.`
     );
   }
 
@@ -223,6 +273,95 @@ export default function DonatePage() {
           </section>
         </div>
 
+        <section className="bg-card border rounded-2xl p-6 md:p-8 mt-8">
+          <div className="flex items-center gap-3 mb-3">
+            <Package className="w-7 h-7 text-primary" />
+            <h2 className={`${playfair.className} text-2xl md:text-3xl font-bold`}>
+              Doe produtos para nossos animais
+            </h2>
+          </div>
+
+          <p className="text-muted-foreground mb-7">
+            Você também pode ajudar doando alimentos, acessórios e itens
+            essenciais para o cuidado dos nossos cães e gatos. Escolha os
+            produtos que deseja doar:
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {donationItems.map((item) => {
+              const selected = selectedItems.includes(item);
+
+              return (
+                <div
+                  key={item}
+                  className={`border rounded-xl p-4 transition ${
+                    selected
+                      ? "border-primary bg-primary/5"
+                      : "border-border"
+                  }`}
+                >
+                  <label className="flex items-center gap-3 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={selected}
+                      onChange={() => toggleItem(item)}
+                      className="w-5 h-5 accent-primary"
+                    />
+                    <span className="font-medium">{item}</span>
+                  </label>
+
+                  {selected && (
+                    <div className="mt-4 flex items-center gap-3">
+                      <label
+                        htmlFor={`quantity-${item}`}
+                        className="text-sm text-muted-foreground"
+                      >
+                        Quantidade:
+                      </label>
+                      <input
+                        id={`quantity-${item}`}
+                        type="number"
+                        min="1"
+                        value={quantities[item] || 1}
+                        onChange={(event) =>
+                          updateQuantity(item, Number(event.target.value))
+                        }
+                        className="w-20 border rounded-lg px-3 py-2 bg-background"
+                      />
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="mt-6 border-t pt-6">
+            <p className="text-sm text-muted-foreground mb-4">
+              {selectedItems.length === 0
+                ? "Nenhum produto selecionado."
+                : `${selectedItems.length} tipo(s) de produto selecionado(s).`}
+            </p>
+
+            <button
+              type="button"
+              onClick={confirmProductDonation}
+              className="w-full sm:w-auto bg-primary text-primary-foreground rounded-xl px-8 py-4 font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition"
+            >
+              <Gift className="w-5 h-5" />
+              Confirmar doação de produtos
+            </button>
+
+            {productMessage && (
+              <p
+                role="status"
+                className="mt-4 text-sm text-primary font-medium break-words"
+              >
+                {productMessage}
+              </p>
+            )}
+          </div>
+        </section>
+
         <div className="mt-8 rounded-2xl bg-primary/5 border border-primary/10 p-5 text-center">
           <ShieldCheck className="w-7 h-7 text-primary mx-auto mb-2" />
 
@@ -232,8 +371,9 @@ export default function DonatePage() {
 
           <p className="text-sm text-muted-foreground">
             Esta página faz parte de um projeto acadêmico. Os valores,
-            a chave Pix e o QR Code são fictícios. Nenhum pagamento
-            ou transferência será realizado.
+            a chave Pix e o QR Code são fictícios. A seleção de produtos
+            também é demonstrativa. Nenhum pagamento, transferência ou
+            doação real será realizado.
           </p>
         </div>
       </div>
