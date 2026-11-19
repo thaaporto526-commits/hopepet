@@ -7,6 +7,16 @@ import NewsCard, { type News as NewsItem } from "@/components/news-card";
 
 const newsList: NewsItem[] = [
   {
+    id: 8,
+    category: "Parcerias",
+    date: "2026-11-19",
+    title: "Hopepet fecha parceria com o jornal Notícia Jovem",
+    description:
+      "Hopepet e Notícia Jovem unem forças para promover a conscientização sobre proteção e bem-estar animal, divulgando campanhas, ações sociais e histórias de resgate.",
+    image: "/notíciajovem.png",
+    link: "/news/parceria-noticia-jovem",
+  },
+  {
     id: 1,
     category: "Campanhas",
     date: "2026-04-10",
