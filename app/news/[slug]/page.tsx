@@ -10,7 +10,7 @@ const news = {
     category: "Parcerias",
     date: "19 de novembro de 2026",
     title: "Hopepet fecha parceria com o jornal Notícia Jovem",
-    image: "/notíciajovem.png",
+    image: "/noticiajovem.png",
     paragraphs: [
       "A Hopepet anuncia uma nova parceria com o jornal Notícia Jovem, fortalecendo seu compromisso com a divulgação da causa animal e a conscientização da sociedade.",
       "A união tem como objetivo ampliar a visibilidade das campanhas de adoção, ações sociais e histórias de resgate, aproximando ainda mais a comunidade das iniciativas de proteção animal.",
