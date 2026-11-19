@@ -43,7 +43,7 @@ const newsList: NewsItem[] = [
     title: "Maria: voluntária do mês",
     description:
       "Conheça a história de Maria e sua dedicação ao cuidado dos animais e às atividades da Hopepet.",
-    image: "/news-maria.png",
+    image: "/maria.png",
     link: "/news/voluntaria-do-mes",
   },
   {
@@ -53,7 +53,7 @@ const newsList: NewsItem[] = [
     title: "Dicas de cuidado com os pets no inverno",
     description:
       "Confira cuidados importantes para manter cães e gatos aquecidos, confortáveis e protegidos durante os dias frios.",
-    image: "/news-inverno.png",
+    image: "/inverno.png",
     link: "/news/cuidados-inverno",
   },
   {
@@ -63,7 +63,7 @@ const newsList: NewsItem[] = [
     title: "Resgate emocionante: seis filhotes encontrados",
     description:
       "Uma equipe de voluntários encontrou seis filhotes que precisavam de acolhimento e cuidados.",
-    image: "/news-resgate.png",
+    image: "/resgate.png",
     link: "/news/resgate-seis-filhotes",
   },
   {
@@ -73,7 +73,7 @@ const newsList: NewsItem[] = [
     title: "Balanço 2025: um ano de conquistas",
     description:
       "Relembre momentos importantes, ações realizadas e histórias que marcaram o ano da Hopepet.",
-    image: "/news-balanco.png",
+    image: "/balanco.png",
     link: "/news/balanco-2025",
   },
 ];
