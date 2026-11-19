@@ -5,6 +5,15 @@ import { playfair } from "@/lib/fonts";
 
 const newsList = [
   {
+    title: "Hopepet fecha parceria com o jornal Notícia Jovem",
+    category: "Parcerias",
+    date: "19 de novembro de 2026",
+    description:
+      "Hopepet e Notícia Jovem unem forças para promover a conscientização sobre proteção e bem-estar animal, divulgando campanhas, ações sociais e histórias de resgate.",
+    image: "/noticiajovem.png",
+    link: "/news/parceria-noticia-jovem",
+  },
+  {
     title: "Campanha de Castração Abril 2026",
     category: "Campanhas",
     date: "10 de abril de 2026",
