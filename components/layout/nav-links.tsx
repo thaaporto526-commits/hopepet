@@ -10,6 +10,7 @@ export const links = [
   { name: "Setores", href: "/sectors" },
   { name: "Notícias", href: "/news" },
   { name: "Ações", href: "/projects" },
+  { name: "Nossos Amigos", href: "/gallery" },
   { name: "Adoções", href: "/adoption" },
   { name: "Contato", href: "/contact" },
 ];
