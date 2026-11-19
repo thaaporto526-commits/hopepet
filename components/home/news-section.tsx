@@ -13,7 +13,7 @@ const newsList: NewsItem[] = [
     title: "Hopepet fecha parceria com o jornal Notícia Jovem",
     description:
       "Hopepet e Notícia Jovem unem forças para promover a conscientização sobre proteção e bem-estar animal, divulgando campanhas, ações sociais e histórias de resgate.",
-    image: "/notíciajovem.png",
+    image: "/noticiajovem.png",
     link: "/news/parceria-noticia-jovem",
   },
   {
