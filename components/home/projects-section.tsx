@@ -11,6 +11,7 @@ import {
   Heart,
   PawPrint,
   Utensils,
+  PlayCircle,
 } from "lucide-react";
 import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
 import { Section } from "@/components/ui/section";
@@ -55,12 +56,83 @@ export default function Projects() {
     },
   ];
 
+  const interviewLink =
+    "https://drive.google.com/file/d/1UOWQX4mvAQa1qwCeJadYaROK7hnB0WeU/view?usp=drivesdk";
+
   return (
     <Section id="projects" className="bg-muted/50">
+      <div className="max-w-5xl mx-auto mb-16">
+        <div className="bg-card border rounded-3xl overflow-hidden shadow-sm">
+          <div className="grid grid-cols-1 md:grid-cols-5 items-center">
+            <div className="md:col-span-3 p-6 sm:p-8 lg:p-10">
+              <span className="text-primary text-sm font-semibold uppercase tracking-wider">
+                Ação em destaque
+              </span>
+
+              <h2
+                className={`${playfair.className} text-2xl md:text-3xl lg:text-4xl font-bold text-foreground leading-tight mt-3 mb-5`}
+              >
+                Conheça quem faz a diferença
+              </h2>
+
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                Por trás de cada cuidado existe uma história. Nesta entrevista,
+                a veterinária <strong className="text-foreground">Daiane Vanessa</strong>
+                compartilha sua trajetória profissional, os desafios da rotina
+                em uma clínica veterinária e suas experiências dedicadas ao
+                cuidado dos animais.
+              </p>
+
+              <p className="text-muted-foreground leading-relaxed mb-7">
+                Conheça um pouco mais sobre a importância do trabalho
+                veterinário e o carinho envolvido em cada atendimento.
+              </p>
+
+              <a
+                href={interviewLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl bg-primary text-primary-foreground px-6 py-3 font-semibold text-sm hover:opacity-90 transition-opacity"
+              >
+                <PlayCircle className="w-5 h-5" />
+                Assistir à entrevista
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+
+            <div className="md:col-span-2 bg-primary/5 h-full flex flex-col items-center justify-center p-6 sm:p-8">
+              <a
+                href={interviewLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-shadow"
+                aria-label="Abrir entrevista da veterinária Daiane Vanessa"
+              >
+                <Image
+                  src="/entrevista.png"
+                  alt="QR Code para assistir à entrevista da veterinária Daiane Vanessa"
+                  width={260}
+                  height={260}
+                  className="w-52 h-52 sm:w-60 sm:h-60 object-contain"
+                />
+              </a>
+
+              <p className="font-semibold text-foreground text-center mt-5">
+                Aponte a câmera e assista
+              </p>
+
+              <p className="text-sm text-muted-foreground text-center mt-1">
+                Escaneie o QR Code para conhecer a entrevista completa.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 mb-16 sm:mb-20">
         <div className="order-2 md:order-1">
           <span className="text-primary text-sm font-semibold uppercase tracking-wider">
-            Nossos Projetos
+            Nossas ações
           </span>
 
           <h2
@@ -70,7 +142,7 @@ export default function Projects() {
           </h2>
 
           <p className="text-muted-foreground text-base sm:text-lg text-pretty mb-6 sm:mb-8">
-            Desenvolvemos projetos para proteger os animais, promover o bem-estar
+            Desenvolvemos ações para proteger os animais, promover o bem-estar
             e conscientizar a comunidade, desde o resgate até a adoção responsável.
           </p>
 
@@ -107,7 +179,7 @@ export default function Projects() {
                       className="w-full sm:w-auto px-4 py-5 rounded-xl font-semibold"
                       render={<Link href="/projects" />}
                     >
-                      <span className="text-sm">Conheça todos os projetos</span>
+                      <span className="text-sm">Conheça nossas ações</span>
                       <ArrowRight className="w-4 h-4 ml-1" />
                     </Button>
                   </CardFooter>
@@ -121,7 +193,7 @@ export default function Projects() {
           <div className="relative rounded-2xl overflow-hidden h-72 sm:h-96 md:h-full md:min-h-100 w-full shadow-md">
             <Image
               src={projects}
-              alt="Projetos da Hopepet com a comunidade e animais"
+              alt="Ações da Hopepet com a comunidade e animais"
               fill
               className="object-cover"
             />
