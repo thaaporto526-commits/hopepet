@@ -7,10 +7,10 @@ import clsx from "clsx";
 export const links = [
   { name: "Início", href: "/" },
   { name: "Sobre", href: "/about" },
-  { name: "Projetos", href: "/projects" },
-  { name: "Adoção", href: "/adoption" },
   { name: "Setores", href: "/sectors" },
   { name: "Notícias", href: "/news" },
+  { name: "Ações", href: "/projects" },
+  { name: "Adoções", href: "/adoption" },
   { name: "Contato", href: "/contact" },
 ];
 
